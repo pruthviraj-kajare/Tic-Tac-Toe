@@ -1,0 +1,133 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f5f7;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.game {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.15);
+  text-align: center;
+  width: min(90vw, 420px);
+}
+
+.game__header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  color: #111827;
+}
+
+.game__status {
+  margin: 0 0 24px;
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 2px solid #d1d5db;
+  border-radius: 14px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+.cell--x {
+  color: #2563eb;
+}
+
+.cell--o {
+  color: #db2777;
+}
+
+.restart {
+  margin-top: 24px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.restart:hover {
+  background: #1f2937;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background: #0f172a;
+    color: #f9fafb;
+  }
+
+  body {
+    background: radial-gradient(circle at top, #1e293b 0%, #0f172a 60%);
+  }
+
+  .game {
+    background: #111827;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+  }
+
+  .game__header h1,
+  .cell {
+    color: #f9fafb;
+  }
+
+  .game__status {
+    color: #cbd5f5;
+  }
+
+  .cell {
+    border-color: #334155;
+    background: #1f2937;
+  }
+
+  .restart {
+    background: #f9fafb;
+    color: #111827;
+  }
+
+  .restart:hover {
+    background: #e2e8f0;
+  }
+}
